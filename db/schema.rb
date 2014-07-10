@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710204347) do
+ActiveRecord::Schema.define(version: 20140710222006) do
 
   create_table "locations", force: true do |t|
     t.string  "label"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20140710204347) do
     t.string  "lat"
     t.string  "decimal"
     t.string  "long"
+  end
+
+  create_table "users", force: true do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "remember_token"
   end
 
 end
