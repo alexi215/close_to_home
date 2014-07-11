@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  resources :users, except: [:index] do
+    # resources :locations, only: [:new, :create]
+  end
 
-  resources :users, except: [:index]
   resources :sessions, only: [:create]
-
-  get '/singup' => 'sessions#new'
-  get '/signin' => 'sessions#destroy'
+  get '/signup' => 'users#new'
+  get '/signin' => 'sessions#new'
   delete '/signout' => 'sessions#destroy'
-  
+
+  root 'welcome#index'
+ 
 end
