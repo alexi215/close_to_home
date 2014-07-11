@@ -11,16 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710222006) do
+ActiveRecord::Schema.define(version: 20140711131554) do
 
   create_table "locations", force: true do |t|
     t.string  "label"
-    t.string  "address",             null: false
-    t.integer "radius",  default: 0
-    t.integer "float",   default: 0
-    t.string  "lat"
-    t.string  "decimal"
-    t.string  "long"
+    t.string  "address",                          null: false
+    t.integer "radius"
+    t.decimal "lat",     precision: 10, scale: 6
+    t.decimal "lng",     precision: 10, scale: 6
   end
 
   create_table "users", force: true do |t|
