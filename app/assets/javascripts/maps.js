@@ -3,7 +3,7 @@ $(function() {
   var map;
 
   function initialize() {
-    var canvas = document.getElementById( "map-cavas" );
+    var canvas = document.getElementById( "map-canvas" );
     map = renderMap( canvas );
   }
 
