@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
 
   resources :users, except: [:index] do
     # resources :locations, only: [:new, :create]
@@ -8,7 +9,4 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/signin' => 'sessions#new'
   delete '/signout' => 'sessions#destroy'
-
-  root 'welcome#index'
- 
 end
