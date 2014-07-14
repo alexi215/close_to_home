@@ -3,8 +3,7 @@
 <head>
   <title>CloseToHome</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag googleMapSrc %>
+  <!-- <%= javascript_include_tag googleMapSrc %> -->
   <%= csrf_meta_tags %>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 </head>
@@ -14,5 +13,6 @@
   <%= render 'common/signout' %>
   <%= yield %>
 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

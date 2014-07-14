@@ -1,11 +1,12 @@
 <h1>Crimes in your area</h1>
 
 <p><%= link_to "Edit", edit_user_path(@user) %></p>
-<body onload="initialize()">
-  <div id="map-canvas"></div>
 
+<!-- refactor initialize() JS -->
+  <div id="map-canvas"></div>
+  
   <div id="locationField">
-    <input id="autocomplete" placeholder="Enter your address"
-           onFocus="geolocate()" type="text"></input>
+    <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text">
   </div>
-</body>
+
+
