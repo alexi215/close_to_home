@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require search
-//= require maps
+//= require maps.js
+//= require model.js
+//= require main.js

@@ -1,10 +1,26 @@
 
-$(document).ready(function() {
+(function( mapPage, $, undefined ) {
   console.log("maps.js firing");
   var map;
+  var placeSearch, autocomplete;
 
-  var canvas = document.getElementById( "map-canvas" );
-  map = renderMap( canvas );
+  
+  function initialize() {
+    var canvas = document.getElementById( "map-canvas" );
+    map = renderMap( canvas );
+
+    // Google Search library:
+    // Create the autocomplete object, restricting the search
+    // to geographical location types.
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+        { types: ['geocode'] });
+    // When the user selects an address from the dropdown,
+    // grab the address for (1) persistance to DB, (2) placement on map, and (3) display on saved location list
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      grabAddress();
+    });
+  }
 
   function renderMap ( el ) {
     var mapOptions = {
@@ -12,12 +28,41 @@ $(document).ready(function() {
       zoom: 12
     };
 
-  var map = new google.maps.Map( el, mapOptions );
-  // return map;
+    var map = new google.maps.Map( el, mapOptions );
+    return map;
   }
 
+  // Get the place details from the autocomplete object.
+  function grabAddress() {
+    var place = autocomplete.getPlace();
+    var latLng = place.geometry.location;
+    var longitude = place.geometry.location.k;
+    var latitude = place.geometry.location.B;
+    console.log("Lat/Long test: " + latLng);
+    placeMarker( latLng );
+    // saveMarker({ latitude: lat, longitude: lng });
+  }
+
+  function placeMarker( searchLatLng ) {
+    new google.maps.Marker({
+      position: searchLatLng,
+      map: map
+    });
+  }
+
+  // Bias the autocomplete object to the user's geographical location,
+  // as supplied by the browser's 'navigator.geolocation' object.
+  mapPage.geolocate = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = new google.maps.LatLng(
+            position.coords.latitude, position.coords.longitude);
+            autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
+            geolocation));
+      });
+    }
+  };
+
   initialize();
-});
-
-
+}( window.mapPage = window.mapPage || {}, jQuery ));
 

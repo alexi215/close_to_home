@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  # has_many :locations, dependent: :destroy
+  has_many :locations, dependent: :destroy
 
   before_create :create_remember_token
   before_save :normalize_fields
