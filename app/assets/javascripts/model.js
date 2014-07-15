@@ -16,3 +16,5 @@ var LocationCollection = Backbone.Collection.extend({
   url: window.location.pathname + '/locations',
   model: Location
 });
+
+// return new LocationCollection

@@ -1,6 +1,7 @@
 console.log("main.js firing");
 
+var locationCollection = new LocationCollection();
+
 $(function() {
-  var locationCollection = new LocationCollection();
   locationCollection.fetch();
 });
