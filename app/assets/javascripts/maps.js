@@ -1,5 +1,5 @@
 
-(function( mapPage, $, undefined ) {
+(function( mapPage, $ ) {
   console.log("maps.js firing");
   var map;
   var placeSearch, autocomplete;
@@ -39,8 +39,14 @@
     var longitude = place.geometry.location.k;
     var latitude = place.geometry.location.B;
     console.log("Lat/Long test: " + latLng);
+
+    locationCollection.create({
+      lat: latitude,
+      lng: longitude
+    });
+
     placeMarker( latLng );
-    // saveMarker({ latitude: lat, longitude: lng });
+
   }
 
   function placeMarker( searchLatLng ) {

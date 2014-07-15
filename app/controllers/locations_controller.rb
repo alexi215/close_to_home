@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    binding.pry
+    
     @location = Location.new(location_params)
     @location.user_id = params[:user_id]
     if @location.save
