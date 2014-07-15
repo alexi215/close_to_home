@@ -2,11 +2,9 @@
 
 <p><%= link_to "Edit", edit_user_path(@user) %></p>
 
-<!-- refactor initialize() JS -->
+
   <div id="map-canvas"></div>
   
   <div id="locationField">
-    <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text">
+    <input id="autocomplete" placeholder="Enter your address" onFocus="mapPage.geolocate()" type="text">
   </div>
-
-
