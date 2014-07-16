@@ -4,11 +4,13 @@
   <title>CloseToHome</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arvo|Oxygen' rel='stylesheet' type='text/css'>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 </head>
 <body>
 
-  <%= link_to "Close to Home", root_path %>
+  
   <%= render 'common/signout' %>
   <%= yield %>
 
