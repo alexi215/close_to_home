@@ -1,24 +1,12 @@
 class CrimesController < ApplicationController
 
-
-
-  class Crimes
-    include HTTParty
-    format :xml
+  def extract
+    response = HTTParty.get('http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml')
+    # Hash of get request
+    data = response.parsed_response
+    # Extracting hash to create array of recent crimes
+    crimes_array = data['feed']['entry']
+    return crimes_array.to_json
   end
 
-
-  puts Crimes.get('http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml')
-
-  # response = HTTParty.get('http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml')
-  # # Hash of get request
-  # data = response.parsed_response
-  # # crimes array
-  # crimes = data['feed']['entry']
-
-  # xcoord = data['feed']['entry'][0]['content']['ReportedCrime']['blockxcoord']
-  # ycoord = data['feed']['entry'][0]['content']['ReportedCrime']['blockycoord']
-  # address = data['feed']['entry'][0]['content']['ReportedCrime']['blocksiteaddress']
-
-
-end
+end # END of crimes controller
