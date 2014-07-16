@@ -1,6 +1,6 @@
 #[Close to Home](http://fierce-chamber-3523.herokuapp.com/)
 
-##GA WDI 2015 - Project 3
+##GA WDI 2014 - Project 3
 
 ### Overview
 **Close to Home** helps users pay attention only to the crimes that occur near them. Crime data to follow in future updates.
