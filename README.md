@@ -4,6 +4,7 @@
 
 ### Overview
 **Close to Home** helps users pay attention only to the crimes that occur near them. Crime data to follow in future updates.
+- Link to app on [Heroku](http://fierce-chamber-3523.herokuapp.com/)
 
 ### Technologies Used
 * Ruby 2.1.1
