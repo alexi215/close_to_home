@@ -8,6 +8,9 @@
   function initialize() {
     var canvas = document.getElementById( "map-canvas" );
     map = renderMap( canvas );
+    
+    getLocationFromDb()
+      .then( drawLocationsFromDb );
 
     // Google Search library:
     // Create the autocomplete object, restricting the search
@@ -19,6 +22,7 @@
     // grab the address for (1) persistance to DB, (2) placement on map, and (3) display on saved location list
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
       grabAddress();
+    
     });
   }
 
@@ -46,7 +50,6 @@
     });
 
     placeMarker( latLng );
-
   }
 
   function placeMarker( searchLatLng ) {
@@ -54,6 +57,23 @@
       position: searchLatLng,
       map: map
     });
+  }
+
+  function getLocationFromDb() {
+    console.log('getLocationFromDb');
+    return $.ajax({
+      dataType: "json",
+      type: "get",
+      url: window.location.pathname + '/locations'
+    });
+  }
+  
+  function drawLocationsFromDb( locations ) {
+    for ( var i = 0; i < locations.length; i++ ) {
+      var location = locations[i];
+      var pin = new google.maps.LatLng(location.lng, location.lat);
+      placeMarker( pin );
+    }
   }
 
   // Bias the autocomplete object to the user's geographical location,

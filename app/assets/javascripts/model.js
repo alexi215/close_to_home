@@ -17,4 +17,10 @@ var LocationCollection = Backbone.Collection.extend({
   model: Location
 });
 
-// return new LocationCollection
+
+// var Crime = Backbone.Model.extend({
+//   defaults: {
+    
+
+//   }
+// });
