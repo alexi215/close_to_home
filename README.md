@@ -1,11 +1,14 @@
-== README
+== [Close to Home](http://fierce-chamber-3523.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GA WDI 2015 - Project 3
 
-Things you may want to cover:
-
-* Ruby version
+**Technologies Used**
+* Ruby 2.1.1
+* Rails 4.1.1
+* PSQL DB
+* Backbone.js
+* Basic Username/Password Authentication
+* [Google Maps and Places APIs](https://developers.google.com/maps/documentation/javascript/tutorial)
 
 * System dependencies
 
