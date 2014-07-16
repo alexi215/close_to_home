@@ -4,12 +4,15 @@
   <%= content_tag :p, msg, class: email %>
 <% end %>
 
-<%= form_for :session, url: sessions_path do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit 'Sign in', id: 'siginin' %>
+<div class="form">
+ <%= form_for :session, url: sessions_path do |f| %>
+   
+     <%= f.label :email %>
+     <%= f.text_field :email %>
+   
+     <%= f.label :password %>
+     <%= f.password_field :password %>
+  
+   <%= f.submit 'Sign in', id: 'siginin' %>
+  </div> 
 <% end %>

@@ -1,12 +1,9 @@
-
 html { 
   height: 100%;
 }
-
 body {
   height: 100%; margin: 0; padding: 0; 
 }
-
 h1 {
   font-family: 'Oxygen', sans-serif;
   text-align: center;
@@ -35,6 +32,10 @@ h1 {
 #address td {
   font-size: 10pt;
 }
+.form {
+  font-family: 'Arvo', serif;
+  text-align: center;  
+}
 .locationField {
   margin-left: auto;
   margin-right: auto;
@@ -47,7 +48,6 @@ h1 {
   margin-right: auto;
   width: 500px; 
 }
-
 .map_show {
   height: 400px;
   margin-bottom: 10px;
@@ -55,15 +55,16 @@ h1 {
   margin-right: auto;
   width: 500px;
 }
-
 .my_locations {
   font-family: 'Arvo', serif;
-  margin: 0 auto;
+  margin: auto;
   font-size: 20px;
   text-align: center;
   width: 200px;
 }
-
+.pure-form, .pure-form-stacked {
+  margin-left: 50px;
+}
 .user_menu {
   font-family: 'Arvo', serif;
   margin-left: 10px;
