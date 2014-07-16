@@ -1,9 +1,10 @@
+<%= link_to "Home Page", root_path, class: "user_menu" %>
+<%= link_to "Update Account", edit_user_path(@user), class: "user_menu" %>
+
 <h1>Crimes in your area</h1>
 
-<p><%= link_to "Edit", edit_user_path(@user) %></p>
+<div id="map-canvas" class="map_show"></div>
 
-  <div id="map-canvas"></div>
-  
-  <div id="locationField">
-    <input id="autocomplete" placeholder="Enter your address" onFocus="mapPage.geolocate()" type="text">
-  </div>
+<div id="locationField" class="locationField">
+  <input id="autocomplete" placeholder="Enter your address" onFocus="mapPage.geolocate()" type="text">
+</div>
