@@ -1,8 +1,12 @@
-== [Close to Home](http://fierce-chamber-3523.herokuapp.com/)
+#[Close to Home](http://fierce-chamber-3523.herokuapp.com/)
 
-GA WDI 2015 - Project 3
+##GA WDI 2014 - Project 3
 
-**Technologies Used**
+### Overview
+**Close to Home** helps users pay attention only to the crimes that occur near them. Crime data to follow in future updates.
+- Link to app on [Heroku](http://fierce-chamber-3523.herokuapp.com/)
+
+### Technologies Used
 * Ruby 2.1.1
 * Rails 4.1.1
 * PSQL DB
@@ -10,22 +14,9 @@ GA WDI 2015 - Project 3
 * Basic Username/Password Authentication
 * [Google Maps and Places APIs](https://developers.google.com/maps/documentation/javascript/tutorial)
 
-* System dependencies
+### User Stories - [Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1119406)
 
-* Configuration
+### Wire Frames
+* Used Gliffy w/ Chrome Dev tools
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+![wire frame](/wire_frame.jpg "Optional Title")
