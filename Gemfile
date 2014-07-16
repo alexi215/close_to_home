@@ -41,5 +41,5 @@ gem 'pry-rails', group: :development
 gem 'rspec-rails'
 gem 'httparty'
 gem 'pg'
-gem 'rails_12factor'
+gem 'rails_12factor' group: :production
 # gem 'simplecov', '~> 0.7.1'
