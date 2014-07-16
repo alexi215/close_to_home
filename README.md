@@ -13,6 +13,7 @@
 * Backbone.js
 * Basic Username/Password Authentication
 * [Google Maps and Places APIs](https://developers.google.com/maps/documentation/javascript/tutorial)
+* DC Crime [XML feed](http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml)
 
 ### User Stories - [Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1119406)
 
