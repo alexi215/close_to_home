@@ -16,4 +16,6 @@
 ### User Stories - [Pivotal Tracker](https://www.pivotaltracker.com/s/projects/1119406)
 
 ### Wire Frames
-* Used Gliffy
+* Used Gliffy w/ Chrome Dev tools
+
+![wire frame](/wire_frame.jpg "Optional Title")
