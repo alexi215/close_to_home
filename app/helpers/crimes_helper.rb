@@ -9,12 +9,12 @@ module CrimesHelper
     # return crimes_array.to_json
     crimes.map do |crime|
       Hash[
-      :date => crime['content']['ReportedCrime']['reportdatetime'], 
-      :address => crime['content']['ReportedCrime']['blocksiteaddress'],
-      :offense => crime['content']['ReportedCrime']['offense'],
-      :method => crime['content']['ReportedCrime']['method'],
-      :ward => crime['content']['ReportedCrime']['ward']
-    ]
+        :date => crime['content']['ReportedCrime']['reportdatetime'], 
+        :address => crime['content']['ReportedCrime']['blocksiteaddress'],
+        :offense => crime['content']['ReportedCrime']['offense'],
+        :method => crime['content']['ReportedCrime']['method'],
+        :ward => crime['content']['ReportedCrime']['ward']
+      ]
     end
   end
   
