@@ -17,10 +17,17 @@ var LocationCollection = Backbone.Collection.extend({
   model: Location
 });
 
+var Crime = Backbone.Model.extend({
+  defaults: {
+    date: '',
+    address: '',
+    offense: '',
+    method: '',
+    ward: ''
+  }
+});
 
-// var Crime = Backbone.Model.extend({
-//   defaults: {
-    
-
-//   }
-// });
+var CrimeCollection = Backbone.Collection.extend({
+  model: Crime,
+  url: '/crimes'
+});

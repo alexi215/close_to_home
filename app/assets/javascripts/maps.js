@@ -9,6 +9,8 @@
     var canvas = document.getElementById( "map-canvas" );
     map = renderMap( canvas );
     
+    getCrimeData();
+
     getLocationFromDb()
       .then( drawLocationsFromDb );
 
@@ -75,6 +77,19 @@
       placeMarker( pin );
     }
   }
+
+  function getCrimeData() {
+    console.log('getCrimeData function firing');
+    $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: '/crimes'
+    });
+  }
+
+
+
+
 
   // Bias the autocomplete object to the user's geographical location,
   // as supplied by the browser's 'navigator.geolocation' object.

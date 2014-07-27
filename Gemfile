@@ -43,3 +43,4 @@ gem 'httparty'
 gem 'pg'
 gem 'rails_12factor', group: :production
 # gem 'simplecov', '~> 0.7.1'
+gem 'geocoder', '~> 1.2.3'
