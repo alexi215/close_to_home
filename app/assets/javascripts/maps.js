@@ -1,16 +1,17 @@
 
 (function( mapPage, $ ) {
   console.log("maps.js firing");
-  var map;
-  var placeSearch, autocomplete;
+  var map, placeSearch, autocomplete;
 
   
   function initialize() {
     var canvas = document.getElementById( "map-canvas" );
     map = renderMap( canvas );
-    
+
     getLocationFromDb()
       .then( drawLocationsFromDb );
+    
+    drawCrimes(latLng );
 
     // Google Search library:
     // Create the autocomplete object, restricting the search
@@ -27,6 +28,7 @@
   }
 
   function renderMap ( el ) {
+    console.log('renderMap');
     var mapOptions = {
       center: new google.maps.LatLng(38.904853, -77.034003),
       zoom: 12
@@ -51,6 +53,29 @@
 
     placeMarker( latLng );
   }
+// ============= CRIMES =============//
+  function drawCrimes( locations ) {
+    console.log('drawCrimes');
+    var crimes = getCrimeData.getPlace();
+    var latLng = crimes.geometry.location;
+    console.log("Crime Lat/long: " + latLng);
+
+    for ( var i = 0; i < crimes.length; i++ ) {
+      var crime = crimes[i];
+      var pin = new google.maps.LatLng(location.lng, location.lat);
+      placeMarker( pin );
+    }
+  }
+
+  function getCrimeData() {
+    console.log('getCrimeData');
+    $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: 'crimes'
+    });
+  }
+// ============= CRIMES =============//
 
   function placeMarker( searchLatLng ) {
     new google.maps.Marker({
@@ -60,10 +85,9 @@
   }
 
   function getLocationFromDb() {
-    console.log('getLocationFromDb');
     return $.ajax({
       dataType: "json",
-      type: "get",
+      type: "GET",
       url: window.location.pathname + '/locations'
     });
   }
