@@ -1,17 +1,18 @@
 
 (function( mapPage, $ ) {
   console.log("maps.js firing");
-  var map, placeSearch, autocomplete;
+  var map;
+  var placeSearch, autocomplete;
 
   
   function initialize() {
     var canvas = document.getElementById( "map-canvas" );
     map = renderMap( canvas );
+    
+    getCrimeData();
 
     getLocationFromDb()
       .then( drawLocationsFromDb );
-    
-    drawCrimes(latLng );
 
     // Google Search library:
     // Create the autocomplete object, restricting the search
@@ -28,7 +29,6 @@
   }
 
   function renderMap ( el ) {
-    console.log('renderMap');
     var mapOptions = {
       center: new google.maps.LatLng(38.904853, -77.034003),
       zoom: 12
@@ -53,29 +53,6 @@
 
     placeMarker( latLng );
   }
-// ============= CRIMES =============//
-  function drawCrimes( locations ) {
-    console.log('drawCrimes');
-    var crimes = getCrimeData.getPlace();
-    var latLng = crimes.geometry.location;
-    console.log("Crime Lat/long: " + latLng);
-
-    for ( var i = 0; i < crimes.length; i++ ) {
-      var crime = crimes[i];
-      var pin = new google.maps.LatLng(location.lng, location.lat);
-      placeMarker( pin );
-    }
-  }
-
-  function getCrimeData() {
-    console.log('getCrimeData');
-    $.ajax({
-      type: 'GET',
-      dataType: 'json',
-      url: 'crimes'
-    });
-  }
-// ============= CRIMES =============//
 
   function placeMarker( searchLatLng ) {
     new google.maps.Marker({
@@ -85,9 +62,10 @@
   }
 
   function getLocationFromDb() {
+    console.log('getLocationFromDb');
     return $.ajax({
       dataType: "json",
-      type: "GET",
+      type: "get",
       url: window.location.pathname + '/locations'
     });
   }
@@ -99,6 +77,19 @@
       placeMarker( pin );
     }
   }
+
+  function getCrimeData() {
+    console.log('getCrimeData function firing');
+    $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: '/crimes'
+    });
+  }
+
+
+
+
 
   // Bias the autocomplete object to the user's geographical location,
   // as supplied by the browser's 'navigator.geolocation' object.

@@ -17,5 +17,5 @@ module CrimesHelper
       ]
     end
   end
-  
+
 end # END of crimes module
