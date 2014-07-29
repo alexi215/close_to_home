@@ -28,6 +28,6 @@ var Crime = Backbone.Model.extend({
 });
 
 var CrimeCollection = Backbone.Collection.extend({
-  url: '/crimes',
-  model: Crime
+  model: Crime,
+  url: '/crimes'
 });
