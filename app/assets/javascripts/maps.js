@@ -1,15 +1,15 @@
 
 (function( mapPage, $ ) {
   console.log("maps.js firing");
-  var map;
-  var placeSearch, autocomplete;
+  var map, placeSearch, autocomplete, geocoder;
 
   
   function initialize() {
     var canvas = document.getElementById( "map-canvas" );
     map = renderMap( canvas );
+    geocoder = new google.maps.Geocoder();
     
-    getCrimeData();
+  getCrimeData();
 
     getLocationFromDb()
       .then( drawLocationsFromDb );
@@ -78,17 +78,45 @@
     }
   }
 
+// ============== CRIME FUNCTIONS ============== //
+// ============================================= //
+
+// Pull crime data from Rails
   function getCrimeData() {
-    console.log('getCrimeData function firing');
     $.ajax({
+      url: '/crimes',
       type: 'GET',
-      dataType: 'json',
-      url: '/crimes'
+      dataType: 'json'
+    }).then( drawCrimeData );
+  }
+
+// Draw Crime Data
+  function drawCrimeData( addresses ) {
+    for ( var i = 0; i < addresses.length; i++ ) {
+      convertAddress(addresses[i]);
+    }
+  }
+
+// Use google's geocoder to convert addresses to LAT/LONGs
+  function convertAddress( location ) {
+
+      debugger
+    geocoder.geocode( { 'location': location.address }, function(results, status ) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert("Geocode not successful: " + status);
+      }
     });
   }
 
 
-
+// ============== CRIME FUNCTIONS ============== //
+// ============================================= //
 
 
   // Bias the autocomplete object to the user's geographical location,
@@ -106,4 +134,3 @@
 
   initialize();
 }( window.mapPage = window.mapPage || {}, jQuery ));
-
