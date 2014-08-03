@@ -92,7 +92,7 @@
 
 // Draw Crime Data
   function drawCrimeData( addresses ) {
-    for ( var i = 0; i < addresses.length; i++ ) {
+    for ( var i = 0; i < 1; i++ ) {
       convertAddress(addresses[i]);
     }
   }
