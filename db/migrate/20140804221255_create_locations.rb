@@ -4,11 +4,9 @@ class CreateLocations < ActiveRecord::Migration
       t.string  "label"
       t.string  "address", null: false
       t.integer "radius"
-      t.decimal "lat", precision: 10, scale: 6
-      t.decimal "lng", precision: 10, scale: 6
+      t.decimal "latitude", precision: 10, scale: 6
+      t.decimal "longitude", precision: 10, scale: 6
       t.integer "user_id"
     end
   end
 end
-
-

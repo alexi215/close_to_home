@@ -42,13 +42,14 @@
   function grabAddress() {
     var place = autocomplete.getPlace();
     var latLng = place.geometry.location;
-    var longitude = place.geometry.location.k;
-    var latitude = place.geometry.location.B;
-    console.log("Lat/Long test: " + latLng);
+    var longitude = place.geometry.location.B;
+    var latitude = place.geometry.location.k;
+    console.log("Latitude: " + latitude);
+    console.log("Longitude: " + longitude);
 
     locationCollection.create({
-      lat: latitude,
-      lng: longitude
+      latitude: latitude,
+      longitude: longitude
     });
 
     placeMarker( latLng );
@@ -73,7 +74,7 @@
   function drawLocationsFromDb( locations ) {
     for ( var i = 0; i < locations.length; i++ ) {
       var location = locations[i];
-      var pin = new google.maps.LatLng(location.lng, location.lat);
+      var pin = new google.maps.LatLng(location.latitude, location.longitude);
       placeMarker( pin );
     }
   }
@@ -99,8 +100,6 @@
 
 // Use google's geocoder to convert addresses to LAT/LONGs
   function convertAddress( location ) {
-
-      debugger
     geocoder.geocode( { 'location': location.address }, function(results, status ) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
