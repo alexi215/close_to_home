@@ -13,5 +13,9 @@ class Crime < ActiveRecord::Base
         :ward => crime['content']['ReportedCrime']['ward']
       )      
     end
+    crimes.select(&:persisted?)
   end
 end # END of class
+
+
+# In 'rails c' use Crime.delete_all to empty table

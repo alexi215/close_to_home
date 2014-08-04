@@ -62,7 +62,6 @@
   }
 
   function getLocationFromDb() {
-    console.log('getLocationFromDb');
     return $.ajax({
       dataType: "json",
       type: "get",

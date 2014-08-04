@@ -1,7 +1,7 @@
 class CrimesController < ApplicationController
 
   def index
-    @crimes = extract_crimes
+    @crimes = crimes
       respond_to do |format|
       # format.html { render :index }
       format.json { render json: @crimes }
@@ -16,5 +16,4 @@ class CrimesController < ApplicationController
       render status: 400, nothing: true
     end
   end
-
 end # END of crimes controller
