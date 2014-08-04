@@ -11,25 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803030218) do
+ActiveRecord::Schema.define(version: 20140804221255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "crime_locations", force: true do |t|
+  create_table "crimes", force: true do |t|
     t.datetime "date"
     t.string   "address"
     t.string   "offense"
     t.string   "method"
     t.integer  "ward"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "locations", force: true do |t|
     t.string  "label"
-    t.string  "address",                          null: false
+    t.string  "address",                            null: false
     t.integer "radius"
-    t.decimal "lat",     precision: 10, scale: 6
-    t.decimal "lng",     precision: 10, scale: 6
+    t.decimal "latitude",  precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.integer "user_id"
   end
 

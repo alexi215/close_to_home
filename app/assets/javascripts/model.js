@@ -6,8 +6,8 @@ var Location = Backbone.Model.extend({
     label: '',
     address: '',
     radius: '',
-    lat: '',
-    lng: '',
+    latitude: '',
+    longitude: '',
     user_id: ''
   }
 });

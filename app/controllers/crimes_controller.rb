@@ -8,4 +8,13 @@ class CrimesController < ApplicationController
     end
   end
 
+  def create
+    @crimes = Crime.new
+    if @crimes.save
+      render json: @crimes
+    else
+      render status: 400, nothing: true
+    end
+  end
+
 end # END of crimes controller
