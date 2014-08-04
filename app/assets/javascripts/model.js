@@ -23,7 +23,9 @@ var Crime = Backbone.Model.extend({
     address: '',
     offense: '',
     method: '',
-    ward: ''
+    ward: '',
+    latitude: '',
+    longitude: ''
   }
 });
 

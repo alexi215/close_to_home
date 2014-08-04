@@ -1,11 +1,14 @@
 class CrimesController < ApplicationController
 
   def index
-    @crimes = extract_crimes
+    @crimes = crime_data
       respond_to do |format|
       # format.html { render :index }
       format.json { render json: @crimes }
     end
+  end
+
+  def new
   end
 
   def create
