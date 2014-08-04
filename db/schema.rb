@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140803030218) do
+=======
+ActiveRecord::Schema.define(version: 20140804003517) do
+>>>>>>> crimes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "crime_locations", force: true do |t|
+=======
+  create_table "crimes", force: true do |t|
+>>>>>>> crimes
     t.datetime "date"
     t.string   "address"
     t.string   "offense"

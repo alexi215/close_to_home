@@ -62,7 +62,10 @@
   }
 
   function getLocationFromDb() {
+<<<<<<< HEAD
     console.log('getLocationFromDb');
+=======
+>>>>>>> crimes
     return $.ajax({
       dataType: "json",
       type: "get",
