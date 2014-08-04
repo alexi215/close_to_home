@@ -9,7 +9,7 @@
     map = renderMap( canvas );
     geocoder = new google.maps.Geocoder();
     
-  getCrimeData();
+    getCrimeData();
 
     getLocationFromDb()
       .then( drawLocationsFromDb );
@@ -88,30 +88,32 @@
       url: '/crimes',
       type: 'GET',
       dataType: 'json'
-    }).then( drawCrimeData );
+    });
+    // }).then( drawCrimeData );
   }
 
 // Draw Crime Data
-  function drawCrimeData( addresses ) {
-    for ( var i = 0; i < 1; i++ ) {
-      convertAddress(addresses[i]);
-    }
-  }
+  // function drawCrimeData( addresses ) {
+  //   for ( var i = 0; i < 1; i++ ) {
+  //     convertAddress(addresses[i]);
+  //   }
+  // }
 
 // Use google's geocoder to convert addresses to LAT/LONGs
-  function convertAddress( location ) {
-    geocoder.geocode( { 'location': location.address }, function(results, status ) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-        });
-      } else {
-        alert("Geocode not successful: " + status);
-      }
-    });
-  }
+  // function convertAddress( location ) {
+  //   geocoder.geocode( { 'location': location.address }, function(results, status ) {
+  //     if (status == google.maps.GeocoderStatus.OK) {
+  //       map.setCenter(results[0].geometry.location);
+  //       var marker = new google.maps.Marker({
+  //         map: map,
+  //         position: results[0].geometry.location
+  //       });
+  //     } else {
+  //       alert("Geocode not successful: " + status);
+  //     }
+  //   });
+  // }
+
 
 
 // ============== CRIME FUNCTIONS ============== //
