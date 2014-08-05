@@ -9,7 +9,7 @@
     map = renderMap( canvas );
     geocoder = new google.maps.Geocoder();
     
-  getCrimeData();
+    getCrimeData();
 
     getLocationFromDb()
       .then( drawLocationsFromDb );
@@ -42,30 +42,30 @@
   function grabAddress() {
     var place = autocomplete.getPlace();
     var latLng = place.geometry.location;
-    var longitude = place.geometry.location.k;
-    var latitude = place.geometry.location.B;
-    console.log("Lat/Long test: " + latLng);
+    var longitude = place.geometry.location.B;
+    var latitude = place.geometry.location.k;
+    console.log("Latitude: " + latitude);
+    console.log("Longitude: " + longitude);
 
     locationCollection.create({
-      lat: latitude,
-      lng: longitude
+      latitude: latitude,
+      longitude: longitude
     });
 
     placeMarker( latLng );
   }
 
   function placeMarker( searchLatLng ) {
+    var iconBase = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
     new google.maps.Marker({
       position: searchLatLng,
-      map: map
+      map: map,
+      icon: iconBase
     });
   }
 
   function getLocationFromDb() {
-<<<<<<< HEAD
     console.log('getLocationFromDb');
-=======
->>>>>>> crimes
     return $.ajax({
       dataType: "json",
       type: "get",
@@ -76,7 +76,7 @@
   function drawLocationsFromDb( locations ) {
     for ( var i = 0; i < locations.length; i++ ) {
       var location = locations[i];
-      var pin = new google.maps.LatLng(location.lng, location.lat);
+      var pin = new google.maps.LatLng(location.latitude, location.longitude);
       placeMarker( pin );
     }
   }
@@ -90,37 +90,20 @@
       url: '/crimes',
       type: 'GET',
       dataType: 'json'
-    }).then( drawCrimeData );
+    }).then(drawCrimes);
   }
 
-// Draw Crime Data
-  function drawCrimeData( addresses ) {
-    for ( var i = 0; i < 1; i++ ) {
-      convertAddress(addresses[i]);
+  function drawCrimes(pin) {
+    for ( var i = 0; i < pin.length; i++ ){
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(pin[i].latitude, pin[i].longitude),
+        map: map
+      });
     }
   }
 
-// Use google's geocoder to convert addresses to LAT/LONGs
-  function convertAddress( location ) {
-
-      debugger
-    geocoder.geocode( { 'location': location.address }, function(results, status ) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-        });
-      } else {
-        alert("Geocode not successful: " + status);
-      }
-    });
-  }
-
-
 // ============== CRIME FUNCTIONS ============== //
 // ============================================= //
-
 
   // Bias the autocomplete object to the user's geographical location,
   // as supplied by the browser's 'navigator.geolocation' object.

@@ -6,8 +6,8 @@ var Location = Backbone.Model.extend({
     label: '',
     address: '',
     radius: '',
-    lat: '',
-    lng: '',
+    latitude: '',
+    longitude: '',
     user_id: ''
   }
 });
@@ -23,7 +23,9 @@ var Crime = Backbone.Model.extend({
     address: '',
     offense: '',
     method: '',
-    ward: ''
+    ward: '',
+    latitude: '',
+    longitude: ''
   }
 });
 
