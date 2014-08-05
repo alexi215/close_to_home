@@ -7,7 +7,7 @@ class Crime < ActiveRecord::Base
   # after_validation check for presence of lat/long, then geocode
   after_validation :geocode, on: :create
 
-binding.pry
+
   # def address_not_converted?
   #   Crime.all do |crime|
   #     if (crime[:latitude] === nil || crime[:longitude] === nil)
