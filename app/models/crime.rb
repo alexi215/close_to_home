@@ -12,6 +12,5 @@ class Crime < ActiveRecord::Base
       crime[:latitude] == nil && crime[:longitude] == nil
     end
   end
-
 end # END of class
 
