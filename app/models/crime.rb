@@ -11,7 +11,7 @@ class Crime < ActiveRecord::Base
     Crime.all do |crime|
       crime[:latitude] == nil && crime[:longitude] == nil
     end
-    crimes.select(&:persisted?)
+    crime.select(&:persisted?)
   end
 
 end # END of class
@@ -19,3 +19,4 @@ end # END of class
 
 # In 'rails c' use Crime.delete_all to empty table
 # Or 'rails c --sandbox' if you want to just mess around
+
