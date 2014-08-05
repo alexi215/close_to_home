@@ -4,7 +4,7 @@ class Crime < ActiveRecord::Base
   validates_uniqueness_of :date, scope: [:address, :offense]
 
   geocoded_by :address
-  after_validation :geocode, on: :create
+  # after_validation :geocode, on: :create
   after_validation :geocode, :if => :address_not_converted
 
   def address_not_converted
