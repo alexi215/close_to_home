@@ -56,9 +56,11 @@
   }
 
   function placeMarker( searchLatLng ) {
+    var iconBase = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
     new google.maps.Marker({
       position: searchLatLng,
-      map: map
+      map: map,
+      icon: iconBase
     });
   }
 
@@ -88,37 +90,20 @@
       url: '/crimes',
       type: 'GET',
       dataType: 'json'
-    });
-    // }).then( drawCrimeData );
+    }).then(drawCrimes);
   }
 
-// Draw Crime Data
-  // function drawCrimeData( addresses ) {
-  //   for ( var i = 0; i < 1; i++ ) {
-  //     convertAddress(addresses[i]);
-  //   }
-  // }
-
-// Use google's geocoder to convert addresses to LAT/LONGs
-  // function convertAddress( location ) {
-  //   geocoder.geocode( { 'location': location.address }, function(results, status ) {
-  //     if (status == google.maps.GeocoderStatus.OK) {
-  //       map.setCenter(results[0].geometry.location);
-  //       var marker = new google.maps.Marker({
-  //         map: map,
-  //         position: results[0].geometry.location
-  //       });
-  //     } else {
-  //       alert("Geocode not successful: " + status);
-  //     }
-  //   });
-  // }
-
-
+  function drawCrimes(pin) {
+    for ( var i = 0; i < pin.length; i++ ){
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(pin[i].latitude, pin[i].longitude),
+        map: map
+      });
+    }
+  }
 
 // ============== CRIME FUNCTIONS ============== //
 // ============================================= //
-
 
   // Bias the autocomplete object to the user's geographical location,
   // as supplied by the browser's 'navigator.geolocation' object.
