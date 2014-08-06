@@ -5,7 +5,7 @@ class Crime < ActiveRecord::Base
   geocoded_by :address
   # after_validation :geocode, :if => :address_not_converted?
   # after_validation check for presence of lat/long, then geocode
-  after_validation :geocode, on: :create
+  after_validation :geocode#, on: :create
 
 
   # def address_not_converted?

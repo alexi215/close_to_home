@@ -11,8 +11,7 @@ module CrimesHelper
           :address => crime['content']['ReportedCrime']['blocksiteaddress'],
           :offense => crime['content']['ReportedCrime']['offense'],
           :method => crime['content']['ReportedCrime']['method'],
-          :ward => crime['content']['ReportedCrime']['ward'],
-          :db_time => crime['updated']
+          :ward => crime['content']['ReportedCrime']['ward']
         )      
       end
     # end
