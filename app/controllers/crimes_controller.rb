@@ -1,15 +1,15 @@
 class CrimesController < ApplicationController
 
   def index
-    # @crimes = Crime.all
-    # render json: @crimes
+    @crimes = Crime.all
+    render json: @crimes
     # if (crime_data.first[:date] != Crime.all.last[:date])
-      @crimes = crime_data
-        respond_to do |format|
+      # @crimes = crime_data
+      #   respond_to do |format|
           # format.html { render :index }
-          format.json { render json: @crimes }
+          # format.json { render json: @crimes }
         # end
-    end
+    # end
   end
 
   def new
