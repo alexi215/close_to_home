@@ -23,7 +23,7 @@
 ![wire frame](/wire_frame.jpg "Optional Title")
 
 #### Future Features
-* Unable to display DC crime [XML feed](http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml) data on map. I believe I have an asynchronous issue when I use a function to convert addresses to Lat/Longs and the follow on function which should place markers on the map.
+* D.C. GIS has released new [JSON](http://opendata.dc.gov/) - will be implementing that soon
 * Once crime data is working, restrict it to only those areas near user-placed markers
 * App needs additional front-end styling
 * Ideally, home page would have a 'preview mode' to provide users without a login some basic functionality. The preview map will display all D.C. crimes and provide users with the ability to view all crimes by type.
